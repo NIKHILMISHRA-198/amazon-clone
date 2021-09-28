@@ -1,10 +1,9 @@
 import React from 'react'
 import './Header.css'
-import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+// import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom'
 import { useStateValue } from './StateProvider';
-
 
 function Header() {
     const [{ basket }, dispatch] = useStateValue();
@@ -22,15 +21,18 @@ function Header() {
                 <input
                     className="header__searchInput"
                     type="text" />
-                <SearchIcon
-                    className="header__searchIcon" />
+                {/* <SearchIcon
+                    className="header__searchIcon" /> */}
             </div>
 
             <div className="header__nav">
-                <div className="header__option">
-                    <span className="header__optionLineOne"> Hello User</span>
-                    <span className="header__optionLineTwo"> Sign in</span>
-                </div>
+
+                <Link to='./login'>
+                    <div className="header__option">
+                        <span className="header__optionLineOne"> Hello User</span>
+                        <span className="header__optionLineTwo"> Sign in</span>
+                    </div>
+                </Link>
 
                 <div className="header__option">
                     <span className="header__optionLineOne"> Returns</span>
@@ -52,5 +54,4 @@ function Header() {
         </div>
     )
 }
-
 export default Header
